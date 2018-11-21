@@ -1,0 +1,55 @@
+sudo mysql -u root -p;
+show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bl                 |
+| hello_mysql        |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+use bl;
+create table gwc(id int primary key auto_increment, favorite varchar(20) not null, discount_remind int(20), wish varchar(20));
+ Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| favorite        | varchar(20) | NO   |     | NULL    |                |
+| discount_remind | varchar(20) | YES  |     | NULL    |                |
+| wish            | varchar(20) | YES  |     | NULL    |                |
++-----------------+-------------+------+-----+---------+
+insert into gwc(id,favorite,discount_remind,wish)values (1,"dress",2,"gift");
++----+----------+-----------------+------+
+| id | favorite | discount_remind | wish |
++----+----------+-----------------+------+
+|  1 | dress    | 2               | gift |
++----+----------+-----------------+------+
+insert into gwc(favorite,discount_remind,wish)value     -> ("shirt",5,"christmas_tree"),  
+    -> ("shoes",9,"Santa_Claus"),
+    -> ("trousers",1,"tourism");
+ id | favorite | discount_remind | wish           |
++----+----------+-----------------+----------------+
+|  1 | dress    | 2               | gift           |
+|  2 | shirt    | 5               | christmas_tree |
+|  3 | shoes    | 9               | Santa_Claus    |
+|  4 | trousers | 1               | tourism        |
++----+----------+-----------------+----------------+
+update gwc set wish="gif" where favorite="dress";
+ id | favorite | discount_remind | wish           |
++----+----------+-----------------+----------------+
+|  1 | dress    | 2               | gif            |
+|  2 | shirt    | 5               | christmas_tree |
+|  3 | shoes    | 9               | Santa_Claus    |
+|  4 | trousers | 1               | tourism        |
++----+----------+-----------------+----------------+
+delect from gwc where id=4;
+| id | favorite | discount_remind | wish           |
++----+----------+-----------------+----------------+
+|  1 | dress    | 2               | gif            |
+|  2 | shirt    | 5               | christmas_tree |
+|  3 | shoes    | 9               | Santa_Claus    |
++----+----------+-----------------+----------------+
+
+
+
