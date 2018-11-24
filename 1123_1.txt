@@ -1,0 +1,82 @@
+sudo mysql -u root -p;
+
+show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bl                 |
+| hello_mysql        |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+
+use bl;
+
+   create table shoucang(id int primary key auto_increment,
+-> account varchar(10) not null unique,
+-> collection varchar(20),
+-> thing varchar(20));
+
+mysql> desc shoucang;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int(11)     | NO   | PRI | NULL    | auto_increment |
+| account    | varchar(10) | NO   | UNI | NULL    |                |
+| collection | varchar(20) | YES  |     | NULL    |                |
+| thing      | varchar(20) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+
+insert into shoucang(account,collection,thing) values
+    -> ("blw1","nike_bobby_tk","shoes"),
+    -> ('blw2','apple','ipad'),
+    -> ('blw3','ikon_concent_zb','shirt'),
+    -> ('blw4','ikon_concent_zb','shoufu'),
+    -> ('blw5','ikon_related','yinngyuanwu');
+
+select *from shoucang;
++----+-----------+-----------------+-------------+
+| id | account   | collection      | thing       |
++----+-----------+-----------------+-------------+
+|  1 | baoleiwa1 | lv              | bag         |
+|  2 | baoleiwa2 | apple           | iphone      |
+|  3 | baoleiwa3 | apple           | ipad        |
+|  4 | baoleiwa4 | ikon_concent_zb | shirt       |
+|  5 | baoleiwa5 | ikon_concent_zb | tiaofu      |
+|  6 | blw1      | nike_bobby_tk   | shoes       |
+|  7 | blw2      | apple           | ipad        |
+|  8 | blw3      | ikon_concent_zb | shirt       |
+|  9 | blw4      | ikon_concent_zb | shoufu      |
+| 10 | blw5      | ikon_related    | yinngyuanwu |
++----+-----------+-----------------+-------------+
+
+
+delete  from shoucang where  collection='apple';
+select *from shoucang;
++----+-----------+-----------------+-------------+
+| id | account   | collection      | thing       |
++----+-----------+-----------------+-------------+
+|  1 | baoleiwa1 | lv              | bag         |
+|  4 | baoleiwa4 | ikon_concent_zb | shirt       |
+|  5 | baoleiwa5 | ikon_concent_zb | tiaofu      |
+|  6 | blw1      | nike_bobby_tk   | shoes       |
+|  8 | blw3      | ikon_concent_zb | shirt       |
+|  9 | blw4      | ikon_concent_zb | shoufu      |
+| 10 | blw5      | ikon_related    | yinngyuanwu |
++----+-----------+-----------------+-------------+
+
+select thing from shoucang;
++-------------+
+| thing       |
++-------------+
+| bag         |
+| shirt       |
+| tiaofu      |
+| shoes       |
+| shirt       |
+| shoufu      |
+| yinngyuanwu |
++-------------+
+
