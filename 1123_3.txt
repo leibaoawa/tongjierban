@@ -1,0 +1,36 @@
+create table yhnxb(id int primary key auto_increment, 
+  login_time  date, 
+  login_mode varchar(20), 
+  longest_span_login_time  date,
+  djmdlv int(3),
+  cs_send varchar(100));
+
+
+ desc yhnxb;
++-------------------------+--------------+------+-----+---------+----------------+
+| Field                   | Type         | Null | Key | Default | Extra          |
++-------------------------+--------------+------+-----+---------+----------------+
+| id                      | int(11)      | NO   | PRI | NULL    | auto_increment |
+| login_time              | date         | YES  |     | NULL    |                |
+| login_mode              | varchar(20)  | YES  |     | NULL    |                |
+| longest_span_login_time | date         | YES  |     | NULL    |                |
+| djmdlv                  | int(3)       | YES  |     | NULL    |                |
+| cs_send                 | varchar(100) | YES  |     | NULL    |                |
++-------------------------+--------------+------+-----+---------+--------------
+
+insert into yhnxb
+(login_time,login_mode,longest_span_login_time,djmdlv,cs_send)values 
+    -> ('2010-01-03','phone_app','2010-01-11'8,'Litter_genius_comes_back_soon'),
+    -> ('2010-02-28','web','2010-04-1',31,'Go_to_hell'),
+    -> ('2021-01-18','ipad','2021-02-01',13,'DO_you_return_it');
+select * from yhnxb;                                                    +----+------------+------------+-------------------------+--------+-------------------------------+
+| id | login_time | login_mode | longest_span_login_time | djmdlv | cs_send                       |
++----+------------+------------+-------------------------+--------+-------------------------------+
+|  1 | 2010-01-03 | phone_app  | 2010-01-11              |      8 | Litter_genius_comes_back_soon |
+|  2 | 2010-02-28 | web        | 2010-04-01              |     31 | Go_to_hell                    |
+|  3 | 2021-01-18 | ipad       | 2021-02-01              |     13 | DO_you_return_it              |
++----+------------+------------+-------------------------+--------+-------------------------------+
+
+
+
+
